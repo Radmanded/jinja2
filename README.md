@@ -1,4 +1,4 @@
-# jinja2
+# Jinja2
 
 # Create a branch
 
@@ -19,13 +19,15 @@ hostname {{ hostname }}
 interface {{ interface.name }}
  ip address {{ interface.ip_address }}
 {% endfor %}
-```
 
+# Create python file in the root
+
+```
 # Import Jinja2 into Nornir script
 from jinja2 import Environment, FileSystemLoader
 
 # Load Jinja2 template
-env = Environment(loader=FileSystemLoader('./templates'))
+env = Environment(loader=FileSystemLoader('templates'))
 template = env.get_template('network_config.j2')
 
 # Render Jinja2 template with data
@@ -37,7 +39,5 @@ data = {
     ]
 }
 output = template.render(data)
-
-# Use the output as needed
-# Example: configure network device with output
-print(output)
+```
+## Run the code 
